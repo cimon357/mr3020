@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Удобочитаемые метки времени системного журнала dmesg								
+# Обычно вывод dmesg показывает количество секунд + миллисекунд с момента запуска системы				
+
+# Источник скрипта:  																
+# https://qastack.ru/unix/111145/human-readable-dmesg-time-stamps-on-openwrt		
+
+base=$(cut -d '.' -f1 /proc/uptime); 
+seconds=$(date +%s); 
+dmesg | sed 's/\]//;s/\[//;s/\([^.]\)\.\([^ ]*\)\(.*\)/\1\n\3/' | 
+while read first; do 
+  read second; 
+  first=`date +"%d/%m/%Y %H:%M:%S" --date="@$(($seconds - $base + $first))"`;
+  printf "[%s] %s\n" "$first" "$second"; 
+done 
