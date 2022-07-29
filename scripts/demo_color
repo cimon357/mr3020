@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Скрипт выводит на экран последовательность цветных квадратов.
+# Источник скрипта, объяснение работы:
+# https://4pda.to/forum/index.php?showtopic=911457&st=9320#entry110372860
+
+N=0
+echo -e "This is a \e[4;38;2;255;255;0;48;5;21mcolorized\e[m text"
+echo -e "\nSystem colors:"
+while [ $N -lt 16 ]; do
+echo -en "\e[48;5;${N}m "
+let N+=1
+[ $(($N%8)) -eq 0 ] && echo -e "\e[m"
+done
+
+echo -e "\nColor cube, 6x6x6:"
+while [ $N -lt 232 ]; do
+echo -en "\e[48;5;${N}m "
+let N+=1
+[ $((($N-16)%6)) -eq 0 ] && echo -en "\e[m "
+[ $((($N-16)%36)) -eq 0 ] && echo ""
+done
+
+echo -e "\nGrayscale ramp:"
+while [ $N -lt 256 ]; do
+echo -en "\e[48;5;${N}m "
+let N+=1
+done
+echo -e "\e[m"
