@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Скрипт, "говорящий" текущую дату
+# Источник скрипта:
+# https://festivalspeaker.fandom.com/ru/wiki
+
+sdate=$(date "+%_d %_m")
+SCRIPTS=/usr/share/my_scripts/tts
+wget -O /tmp/tts.mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=ru&client=tw-ob&q=Сегодня $(${SCRIPTS}/date_echo $sdate)"
+madplay /tmp/tts.mp3
