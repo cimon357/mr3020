@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Скрипт выводит список установленных пакетов (модулей)
+# с сортировкой по дате и времени их установки/изменения.
+# Источник скрипта:
+# https://4pda.to/forum/index.php?showtopic=911457&view=findpost&p=107459577#
+
+opkg status | while read FIELD VAL; do
+[ "$FIELD" == "Package:" ] && NAME=$VAL
+[ "$FIELD" == "Installed-Time:" ] && TIME="$(date -d @$VAL +"%Y-%m-%d %H:%M:%S")" && echo "$TIME $NAME"
+done | sort
+
+exit 0
