@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Копируем файлы репозитория на локальный диск.
+
+# Переходим в директорию для загрузки,
+# с помощью wget скачиваем репозиторий.
+
+cd /mnt/...куда_копируем/mipsel_24kc/base
+wget -r -np -nH -R index.htm* http://downloads.openwrt.org/releases/18.06.1/packages/mipsel_24kc/base/
+
+cd /mnt/...куда_копируем/mipsel_24kc/luci
+wget -r -np -nH -R index.htm* http://downloads.openwrt.org/releases/18.06.1/packages/mipsel_24kc/luci/
+
+cd /mnt/...куда_копируем/mipsel_24kc/packages
+wget -r -np -nH -R index.htm* http://downloads.openwrt.org/releases/18.06.1/packages/mipsel_24kc/packages/
+
+cd /mnt/...куда_копируем/mipsel_24kc/routing
+wget -r -np -nH -R index.htm* http://downloads.openwrt.org/releases/18.06.1/packages/mipsel_24kc/routing/
+
+cd /mnt/...куда_копируем/mipsel_24kc/telephony
+wget -r -np -nH -R index.htm* http://downloads.openwrt.org/releases/18.06.1/packages/mipsel_24kc/telephony/
