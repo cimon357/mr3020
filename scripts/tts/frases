@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Озвучка фразы, выбранной случайным образом из текстового файла.
+
+# Выбор случайной строки в текстовом файле.
+cadena=$(shuf -n 1 путь_к_файлу/frases.txt)
+wget -O /tmp/tts.mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=ru&client=tw-ob&q=$cadena)"
+madplay /tmp/tts.mp3
