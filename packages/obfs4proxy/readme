@@ -1,0 +1,35 @@
+Package: obfs4proxy
+Version: 0.0.11-1
+Depends: libc
+License: BSD-2-Clause
+Section: net
+Architecture: mipsel_24kc
+Installed-Size: 2672217
+Filename: obfs4proxy_0.0.11-1_mipsel_24kc.ipk
+Size: 2667288
+SHA256sum: 4e5cccba37af07d4904c80baf4d54b544fd5334fceea594179228daded88d1b3
+
+
+Description:  obfs4proxy is a tool that attempts to circumvent censorship by
+ transforming the Tor traffic between the client and the bridge. This way
+ censors, who usually monitor traffic between the client and the bridge,
+ will see innocent-looking transformed traffic instead of the actual Tor
+ traffic.
+ 
+ obfs4proxy implements the obfsucation protocols obfs2, obfs3, and obfs4.
+ 
+ It is written in Go and is compliant with the Tor pluggable transports
+ specification, and its modular architecture allows it to support
+ multiple pluggable transports.
+ 
+ This package contains both the client and the bridge in a single program.
+ 
+ 
+ Описание: OBFS4Proxy - это инструмент, который пытается обойти цензуру, превращая трафик TOR между клиентом и мостом. Таким образом, цензуры, которые обычно контролируют трафик между клиентом и мостом, увидят невинный трафик вместо фактического трафика TOR.
+ 
+ OBFS4Proxy реализует протоколы OBFSUCATION OBFS2, OBFS3 и OBFS4.
+ 
+ Он написан в Go и соответствует спецификации TOR Pluggable Transports, 
+ а его модульная архитектура позволяет ему поддерживать несколько транспортов.
+ 
+ Этот пакет содержит как клиент, так и мост в одной программе.
