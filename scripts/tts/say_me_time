@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Скрипт, "говорящий" текущее время
+
+wget -O /tmp/tts.mp3 "http://translate.google.com/translate_tts?ie=UTF-8&tl=ru&client=tw-ob&q=Сейчас $(date +"%T")"
+madplay /tmp/tts.mp3
