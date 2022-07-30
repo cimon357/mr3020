@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Синтез речи из текста с использованием Google translator
+# Источники скрипта:
+# https://eko.one.pl/?p=openwrt-soundnotify
+# https://eko.one.pl/forum/viewtopic.php?id=1213
+
+CO=$(echo $* | sed -e 's/ /%20/g')
+wget -q "http://translate.google.com/translate_tts?ie=UTF-8&tl=ru&client=tw-ob&q=$CO" -O - | madplay -q -
