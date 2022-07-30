@@ -1,0 +1,28 @@
+# Несколько простых скриптов по работе со светодиодами (leds).
+
+# Включить все светодиоды.
+#!/bin/sh
+LEDS="tp-link:green:power tp-link:green:wlan tp-link:green:lan tp-link:green:wps"
+for l in $LEDS; do
+	echo 1 > /sys/class/leds/$l/brightness
+done
+
+# Выключить все светодиоды.
+#!/bin/sh
+LEDS="tp-link:green:power tp-link:green:wlan tp-link:green:lan tp-link:green:wps"
+for l in $LEDS; do
+	echo 0 > /sys/class/leds/$l/brightness
+done
+
+# По очереди зажигаем и гасим все светодиоды.
+#!/bin/bash
+# Сколько раз выполняем этот скрипт.
+for i in {1..5}
+do
+	LEDS="tp-link:green:power tp-link:green:wlan tp-link:green:lan tp-link:green:wps tp-link:green:lan tp-link:green:wlan tp-link:green:power"
+	for l in $LEDS; do
+		echo 1 > /sys/class/leds/$l/brightness		
+			sleep 1
+		echo 0 > /sys/class/leds/$l/brightness
+	done
+done
